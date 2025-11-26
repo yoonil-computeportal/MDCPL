@@ -1,10 +1,10 @@
-# MDPCL - Midnight Decentralized Private Compute Layer
+# MDCL - Midnight Decentralized Compute Layer
 
-A privacy-preserving, decentralized compute infrastructure for the Midnight/Cardano ecosystem. MDPCL enables encrypted workload execution with verifiable results, allowing DApps to run confidential computations without exposing sensitive data.
+A privacy-preserving, decentralized compute infrastructure for the Midnight/Cardano ecosystem. MDCL enables encrypted workload execution with verifiable results, allowing DApps to run confidential computations without exposing sensitive data.
 
 ## Overview
 
-MDPCL provides a secure compute layer where:
+MDCL provides a secure compute layer where:
 
 - **Workloads are encrypted end-to-end** - Data is never exposed in plaintext outside the client
 - **Execution is verifiable** - Cryptographic proofs ensure computation integrity
@@ -13,7 +13,7 @@ MDPCL provides a secure compute layer where:
 
 ```
 ┌──────────────┐     ┌──────────────────┐     ┌─────────────────────────────┐
-│  Midnight    │     │   MDPCL Gateway  │     │   Private Compute Pool      │
+│  Midnight    │     │   MDCL Gateway  │     │   Private Compute Pool      │
 │  DApp/Client │────▶│   (API Layer)    │────▶│   (Worker Nodes)            │
 └──────────────┘     └──────────────────┘     └─────────────────────────────┘
        │                                                │
@@ -44,8 +44,8 @@ MDPCL provides a secure compute layer where:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yoonil-computeportal/MDPCL.git
-cd MDPCL
+git clone https://github.com/yoonil-computeportal/MDCL.git
+cd MDCL
 
 # Create virtual environment
 python -m venv venv
@@ -68,10 +68,10 @@ python demo/run_demo.py
 ### Using the SDK
 
 ```python
-from mdpcl import MDPCLClient
+from MDCL import MDCLClient
 
 # Initialize client
-client = MDPCLClient(
+client = MDCLClient(
     gateway_url="http://localhost:8000",
     api_key="your-api-key"
 )
@@ -98,16 +98,16 @@ print(result.decrypted_data)  # {"result": 84}
 
 ```bash
 # Generate keys
-mdpcl keys generate
+MDCL keys generate
 
 # Submit a job
-mdpcl submit --code "def compute(x): return x * 2" --input '{"x": 42}'
+MDCL submit --code "def compute(x): return x * 2" --input '{"x": 42}'
 
 # Check status
-mdpcl status <job_id>
+MDCL status <job_id>
 
 # Get result
-mdpcl result <job_id>
+MDCL result <job_id>
 ```
 
 ## API Reference
@@ -181,8 +181,8 @@ Response:
 ## Project Structure
 
 ```
-MDPCL/
-├── src/mdpcl/
+MDCL/
+├── src/MDCL/
 │   ├── gateway/           # API Layer (FastAPI)
 │   │   ├── routes/        # API endpoints
 │   │   ├── middleware/    # Auth, rate limiting
@@ -213,7 +213,7 @@ MDPCL/
 
 - [Architecture](docs/architecture.md) - System design and component overview
 - [API Reference](docs/api-reference.md) - Detailed API documentation
-- [Integration Guide](docs/integration.md) - How to integrate with MDPCL
+- [Integration Guide](docs/integration.md) - How to integrate with MDCL
 - [Troubleshooting](docs/troubleshooting.md) - Common issues and solutions
 
 ## Development
@@ -225,7 +225,7 @@ MDPCL/
 pytest tests/
 
 # Run with coverage
-pytest tests/ --cov=src/mdpcl --cov-report=html
+pytest tests/ --cov=src/MDCL --cov-report=html
 
 # Run specific test file
 pytest tests/test_crypto.py -v
@@ -263,7 +263,7 @@ docker-compose down
 
 ## Security
 
-MDPCL is designed with security as a core principle:
+MDCL is designed with security as a core principle:
 
 - **End-to-end encryption**: All workloads encrypted with AES-256-GCM
 - **Key isolation**: Private keys never leave client/worker boundaries
