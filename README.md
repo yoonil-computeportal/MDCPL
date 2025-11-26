@@ -13,7 +13,7 @@ MDCL provides a secure compute layer where:
 
 ```
 ┌──────────────┐     ┌──────────────────┐     ┌─────────────────────────────┐
-│  Midnight    │     │   MDCL Gateway  │     │   Private Compute Pool      │
+│  Midnight    │     │   MDCL Gateway   │     │       Compute Pool          │
 │  DApp/Client │────▶│   (API Layer)    │────▶│   (Worker Nodes)            │
 └──────────────┘     └──────────────────┘     └─────────────────────────────┘
        │                                                │
